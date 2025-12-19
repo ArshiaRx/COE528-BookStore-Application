@@ -2,8 +2,6 @@
 
 A JavaFX-based desktop application for managing a bookstore with separate interfaces for owners and customers. This application supports book management, customer management, and a points-based loyalty system.
 
-![Bookstore Application](images/LoginUI.jpg)
-
 ## Table of Contents
 
 - [Features](#features)
@@ -32,40 +30,6 @@ A JavaFX-based desktop application for managing a bookstore with separate interf
   - Silver: Less than 1000 points
   - Gold: 1000+ points
 
-![Owner Dashboard](images/CustomersView.jpg)
-
-## Prerequisites
-
-- **Java Development Kit (JDK)**: Version 11 or higher (tested with JDK 21)
-  - Download from: [Oracle JDK](https://www.oracle.com/java/technologies/downloads/) or [OpenJDK](https://adoptium.net/)
-- **JavaFX SDK**: Version 21.0.2 or compatible
-  - Download from: [OpenJFX](https://openjfx.io/)
-  - Extract to a location on your system
-- **Operating System**: Windows, Linux, or macOS
-
-## Installation
-
-1. **Clone or download the repository**
-   ```bash
-   git clone <repository-url>
-   cd COE528-BookStore-Application
-   ```
-
-2. **Install JDK**
-   - Download and install JDK 11 or higher
-   - Verify installation:
-     ```bash
-     java -version
-     javac -version
-     ```
-
-3. **Download and Extract JavaFX SDK**
-   - Download JavaFX SDK 21.0.2 from [OpenJFX](https://openjfx.io/)
-   - Extract the SDK to your project directory
-   - Rename the extracted folder to `javafx-sdk-21.0.2`
-   - The structure should be: `COE528-BookStore-Application/javafx-sdk-21.0.2/lib/`
-
-## Usage
 
 ### Running the Application
 
@@ -79,41 +43,6 @@ Or on Windows:
 run.bat
 ```
 
-#### Manual Compilation and Execution:
-```bash
-# Compile
-javac --module-path javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml -d . *.java
-
-# Run
-java --module-path javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml bookstoreapp.BookstoreApp
-```
-
-### Default Login Credentials
-
-**Owner Account:**
-- Username: `admin`
-- Password: `admin`
-
-**Customer Accounts:**
-- No default customer accounts exist initially
-- Create customer accounts through the owner interface
-
-### Application Flow
-
-1. **Login Screen**: Enter credentials to access the application
-   ![Login Screen](images/loginUI.jpg)
-
-2. **Owner Interface**: 
-   - Navigate to Books or Customers management
-   - Add/delete books and customers
-   ![Owner Books Screen](images/AppUI.png)
-   ![Owner Customers Screen](images/CustomerView.jpg)
-
-3. **Customer Interface**:
-   - Browse available books
-   - Select books to purchase
-   - Choose to buy with or without points redemption
-   ![Customer Screen](images/ShelfView.jpg)
 
 ## Project Structure
 
@@ -147,18 +76,22 @@ COE528-BookStore-Application/
 
 ### Login Screen
 ![Login Screen](images/LoginUI.jpg)
+
 The initial login interface where users authenticate.
 
 ### Owner Dashboard
 ![Owner Dashboard](images/AppUI.jpg)
+
 Main menu for owners to access book and customer management.
 
 ### Book Management
-![Book Management](images/ShelfUI.jpg)
+![Book Management](images/ShelfView.jpg)
+
 Interface for adding and managing books in the inventory.
 
 ### Customer Management
 ![Customer Management](images/CustomersView.jpg)
+
 Interface for managing customer accounts.
 
 
@@ -191,6 +124,7 @@ Data is automatically saved when:
 
 
 **Note**: This application was developed as part of COE528 coursework. Users must download and install JavaFX SDK separately as it is not included in this repository.
+
 
 
 
