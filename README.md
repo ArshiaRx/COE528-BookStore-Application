@@ -2,7 +2,7 @@
 
 A JavaFX-based desktop application for managing a bookstore with separate interfaces for owners and customers. This application supports book management, customer management, and a points-based loyalty system.
 
-![Bookstore Application](images/login-screen.png)
+![Bookstore Application](images/LoginUI.jpg)
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@ A JavaFX-based desktop application for managing a bookstore with separate interf
   - Silver: Less than 1000 points
   - Gold: 1000+ points
 
-![Owner Dashboard](images/owner-dashboard.png)
+![Owner Dashboard](images/CustomersView.jpg)
 
 ## Prerequisites
 
@@ -101,19 +101,19 @@ java --module-path javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fx
 ### Application Flow
 
 1. **Login Screen**: Enter credentials to access the application
-   ![Login Screen](images/loginUI.png)
+   ![Login Screen](images/loginUI.jpg)
 
 2. **Owner Interface**: 
    - Navigate to Books or Customers management
    - Add/delete books and customers
    ![Owner Books Screen](images/AppUI.png)
-   ![Owner Customers Screen](images/CustomerView.png)
+   ![Owner Customers Screen](images/CustomerView.jpg)
 
 3. **Customer Interface**:
    - Browse available books
    - Select books to purchase
    - Choose to buy with or without points redemption
-   ![Customer Screen](images/ShelfView.png)
+   ![Customer Screen](images/ShelfView.jpg)
 
 ## Project Structure
 
@@ -146,24 +146,21 @@ COE528-BookStore-Application/
 ## Screenshots
 
 ### Login Screen
-![Login Screen](images/login-screen.png)
+![Login Screen](images/LoginUI.jpg)
 The initial login interface where users authenticate.
 
 ### Owner Dashboard
-![Owner Dashboard](images/owner-dashboard.png)
+![Owner Dashboard](images/AppUI.jpg)
 Main menu for owners to access book and customer management.
 
 ### Book Management
-![Book Management](images/owner-books.png)
+![Book Management](images/ShelfUI.jpg)
 Interface for adding and managing books in the inventory.
 
 ### Customer Management
-![Customer Management](images/owner-customers.png)
+![Customer Management](images/CustomersView.jpg)
 Interface for managing customer accounts.
 
-### Customer Shopping Interface
-![Customer Screen](images/customer-screen.png)
-Customer view for browsing and purchasing books.
 
 ## Data Persistence
 
@@ -192,34 +189,8 @@ Data is automatically saved when:
 - Check that all `.java` files are in the root directory
 - Make sure the JavaFX SDK path in the run script matches your installation
 
-### Blank window appears
-- Recompile the application
-- Check for runtime errors in the terminal
-- Ensure JavaFX modules are properly loaded
-
-### ClassNotFoundException
-- Make sure you're running from the project root directory
-- Compile the application first (the `bookstoreapp/` folder will be created automatically)
-- Check that the package structure is correct
-
-## Contributing
-
-This is a course project (COE528). For contributions or improvements:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-This project is part of a course assignment. Please refer to your course guidelines for usage and distribution policies.
-
-## Contact
-
-For questions or issues, please refer to the course instructor or create an issue in the repository.
-
----
 
 **Note**: This application was developed as part of COE528 coursework. Users must download and install JavaFX SDK separately as it is not included in this repository.
+
 
 
