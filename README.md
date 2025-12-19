@@ -5,9 +5,6 @@ A JavaFX-based desktop application for managing a bookstore with separate interf
 ## Table of Contents
 
 - [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Screenshots](#screenshots)
 
@@ -122,6 +119,7 @@ Data is automatically saved when:
 
 
 **Note**: This application was developed as part of COE528 coursework. Users must download and install JavaFX SDK separately as it is not included in this repository.
+
 
 
 
