@@ -55,6 +55,11 @@ public class CustomerCostScreen {
         Button logout = new Button("Logout");
         logout.setOnAction(e ->{
             // Switch to login screen
+            BookstoreApp app = (BookstoreApp) primaryStage.getUserData();
+            if (app != null) {
+                BookStore.saveCustomers();
+                app.showLoginScreen();
+            }
         });
         
         VBox vbox = new VBox();
@@ -66,3 +71,4 @@ public class CustomerCostScreen {
         return screen;
     }
 }
+
