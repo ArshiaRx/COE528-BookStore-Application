@@ -7,8 +7,7 @@ import javafx.geometry.*;
 
 public class OwnerStartScreen {
 
-    public Group display(){
-        //not a clue as to what parameters go up here
+    public Group display(BookstoreApp app){
         
         Group screen = new Group();
         VBox vbox = new VBox(10);
@@ -22,33 +21,33 @@ public class OwnerStartScreen {
         //button sizing and initalization
         
         buttonBooks.setOnAction(e ->{
-            //idk how we're gonna switch through screens via main 
-            //but heres where you'd change the scene
-            //you'd go to the owner-books-screen
+            app.showOwnerBooksScreen();
         });
+        
         buttonCustomers.setOnAction(e ->{
-            //you'd go to the owner-customers-screen here
+            app.showOwnerCustomersScreen();
         });
+        
         buttonLogout.setOnAction(e ->{
-            //you'd go to the login screen here
+            app.showLoginScreen();
         });
         
         vbox.getChildren().addAll(buttonBooks, buttonCustomers, buttonLogout);
         vbox.setAlignment(Pos.CENTER);
         //adding buttons to a vertical column
         
-        /*
-        Scene scene = new Scene(vbox, 300, 200);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        ^this is how i initialized the screen to test it using a main method
-        but idk how the main is gonna be so i mimicked the CustomerStartScreen,
-        feel free to change it, thanks again!
-        */
+        // Use StackPane to center the VBox in the middle of the window
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().add(vbox);
+        StackPane.setAlignment(vbox, Pos.CENTER);
+        stackPane.setMinSize(600, 400);
+        stackPane.setPrefSize(600, 400);
+        stackPane.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         
-        screen.getChildren().addAll(vbox);
+        screen.getChildren().addAll(stackPane);
         
         return screen;
     }
     
 }
+
