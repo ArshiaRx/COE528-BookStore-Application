@@ -20,12 +20,26 @@ public class FileManager {
     
     public static ArrayList read(String type) throws IOException {
         Path path = Paths.get(type + ".txt");
-        if (type == "books") {
+        if (type.equals("books")) {
             List<String> text = Files.lines(path).collect(Collectors.toList());
             ArrayList<Book> books = new ArrayList<>();
             for (String s : text) {
-                String[] d = s.split(" ");
-                books.add(new Book(d[0], Double.parseDouble(d[1])));
+                s = s.trim();                          // Remove leading/trailing whitespace
+                if (s.isEmpty())
+                    continue;                           // Skip empty lines
+                // Find the last space - everything before is the book name, after is the price
+                int lastSpaceIndex = s.lastIndexOf(" ");
+                if (lastSpaceIndex == -1) continue;      // Skip invalid lines
+                String bookName = s.substring(0, lastSpaceIndex).trim();
+                String priceStr = s.substring(lastSpaceIndex + 1).trim();
+                try {
+                    double price = Double.parseDouble(priceStr);
+                    books.add(new Book(bookName, price));
+                } catch (NumberFormatException e) {
+                    
+                    // Skip invalid price lines
+                    continue;
+                }
             }
             return books;
         }
