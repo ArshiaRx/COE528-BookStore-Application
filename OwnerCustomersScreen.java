@@ -109,6 +109,10 @@ public class OwnerCustomersScreen {
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> {
             // TODO: navigate back to previous screen
+            BookstoreApp app = (BookstoreApp) primaryStage.getUserData();
+            if (app != null) {
+                app.showOwnerStartScreen();
+            }
         });
 
         HBox back = new HBox(5);
