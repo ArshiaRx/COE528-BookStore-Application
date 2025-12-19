@@ -101,19 +101,19 @@ java --module-path javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fx
 ### Application Flow
 
 1. **Login Screen**: Enter credentials to access the application
-   ![Login Screen](images/login-screen.png)
+   ![Login Screen](images/loginUI.png)
 
 2. **Owner Interface**: 
    - Navigate to Books or Customers management
    - Add/delete books and customers
-   ![Owner Books Screen](images/owner-books.png)
-   ![Owner Customers Screen](images/owner-customers.png)
+   ![Owner Books Screen](images/AppUI.png)
+   ![Owner Customers Screen](images/CustomerView.png)
 
 3. **Customer Interface**:
    - Browse available books
    - Select books to purchase
    - Choose to buy with or without points redemption
-   ![Customer Screen](images/customer-screen.png)
+   ![Customer Screen](images/ShelfView.png)
 
 ## Project Structure
 
@@ -221,4 +221,5 @@ For questions or issues, please refer to the course instructor or create an issu
 ---
 
 **Note**: This application was developed as part of COE528 coursework. Users must download and install JavaFX SDK separately as it is not included in this repository.
+
 
