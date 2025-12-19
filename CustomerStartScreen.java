@@ -40,12 +40,52 @@ public class CustomerStartScreen {
         price.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         // Checkbox column
-        TableColumn<Book, String> select = new TableColumn<>("");
+        TableColumn<Book, String> select = new TableColumn<>("Select");
         select.setMinWidth(100);
-        select.setCellValueFactory(new PropertyValueFactory<>("select"));
+        select.setCellValueFactory(cellData -> cellData.getValue().getSelect().selectedProperty());
         
         table.setItems(books);
         table.getColumns().addAll(title, price, select);
+
+        // Button actions
+        buy1.setOnAction(e -> {
+            double total = 0.0;
+            for (Book book : books) {
+                if (book.getSelect().isSelected()) {
+                    total += book.getPrice();
+                }
+            }
+            if (total > 0) {
+                BookstoreApp app = (BookstoreApp) primaryStage.getUserData();
+                if (app != null) {
+                    app.showCustomerCostScreen(cust, total, false);
+                    BookStore.saveCustomers();
+                }
+            }
+        });
+        
+        buy2.setOnAction(e -> {
+            double total = 0.0;
+            for (Book book : books) {
+                if (book.getSelect().isSelected()) {
+                    total += book.getPrice();
+                }
+            }
+            if (total > 0) {
+                BookstoreApp app = (BookstoreApp) primaryStage.getUserData();
+                if (app != null) {
+                    app.showCustomerCostScreen(cust, total, true);
+                    BookStore.saveCustomers();
+                }
+            }
+        });
+        
+        logout.setOnAction(e -> {
+            BookstoreApp app = (BookstoreApp) primaryStage.getUserData();
+            if (app != null) {
+                app.showLoginScreen();
+            }
+        });
         
         BorderPane header = new BorderPane();
         HBox bot = new HBox();
