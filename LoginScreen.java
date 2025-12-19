@@ -5,10 +5,19 @@ import javafx.scene.layout.*;
 import javafx.geometry.*;
 import javafx.scene.paint.Color;
 import javafx.scene.*;
+import java.util.ArrayList;
+
 
 public class LoginScreen {
     
-    public Group display(){
+    private Owner owner;
+    private ArrayList<Customer> customers;
+    private BookstoreApp app;
+    
+    public Group display(Owner owner, ArrayList<Customer> customers, BookstoreApp app){
+        this.owner = owner;
+        this.customers = customers;
+        this.app = app;
         
         Group screen = new Group();
         
@@ -31,9 +40,11 @@ public class LoginScreen {
             
             if(username.equals(owner.getUsername()) == true && password.equals(owner.getPassword()) == true){  
             //switch screen to owner main screen
+                app.showOwnerStartScreen();
             }
             else{
                 boolean login = false;
+                Customer loggedInCustomer = null;
 
                 for(int i = 0; i < customers.size(); i++){
                     //customers is the arraylist of customers
@@ -42,6 +53,8 @@ public class LoginScreen {
                         
                         //switch screen to customer main screen
                         login = true;
+                        loggedInCustomer = customers.get(i);
+                        break;
                     }
                 }
            
@@ -50,6 +63,8 @@ public class LoginScreen {
                     errorLogin.setText("Incorrect Login Credentials!");
                     errorLogin.setTextFill(Color.color(1,0,0));
                     fieldPassword.clear();
+                } else {
+                    app.showCustomerStartScreen(loggedInCustomer);
                 }
             }
             
@@ -66,23 +81,27 @@ public class LoginScreen {
         gridPane.add(errorLogin, 1, 4);
         //adding all the elements to a grid
         
-        gridPane.setHgap(5);
-        gridPane.setVgap(5);
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
         gridPane.setAlignment(Pos.CENTER);
         //formatting the grid
         
-        /*
-        Scene scene = new Scene(gridPane, 600, 400);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        ^this is how i initialized the screen to test it using a main method
-        but idk how the main is gonna be so i mimicked the CustomerStartScreen,
-        feel free to change it, thanks again!
-        */
+        // Use StackPane to center the GridPane in the middle of the window
+        // StackPane will center its children by default
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().add(gridPane);
+        StackPane.setAlignment(gridPane, Pos.CENTER);
         
-        screen.getChildren().addAll(gridPane);
+        // Since Group doesn't respect layout, we need to bind StackPane size
+        // to the scene size. We'll do this by making it fill available space
+        stackPane.setMinSize(600, 400);
+        stackPane.setPrefSize(600, 400);
+        stackPane.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        
+        screen.getChildren().addAll(stackPane);
         
         return screen;
     }
     
 }
+
